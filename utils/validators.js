@@ -22,4 +22,4 @@ const validators = {
   }
 };
 
-module.exports = validators;
+export default validators;

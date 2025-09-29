@@ -1,6 +1,6 @@
-const Infected = require("../models/InfectedModel");
+import Infected from "../models/InfectedModel.js";
 
-const getInfecteds = async (req, res) => {
+export const getInfecteds = async (req, res) => {
   try {
     const { name, stage } = req.query;
     let filter = {};
@@ -14,7 +14,7 @@ const getInfecteds = async (req, res) => {
   }
 };
 
-const getInfectedById = async (req, res) => {
+export const getInfectedById = async (req, res) => {
   try {
     const infected = await Infected.findById(req.params.id);
     if (!infected) return res.status(404).json({ message: "Infectado no encontrado" });
@@ -24,7 +24,7 @@ const getInfectedById = async (req, res) => {
   }
 };
 
-const createInfected = async (req, res) => {
+export const createInfected = async (req, res) => {
   try {
     const newInfected = new Infected(req.body);
     const savedInfected = await newInfected.save();
@@ -34,7 +34,7 @@ const createInfected = async (req, res) => {
   }
 };
 
-const updateInfected = async (req, res) => {
+export const updateInfected = async (req, res) => {
   try {
     const updatedInfected = await Infected.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedInfected) return res.status(404).json({ message: "Infectado no encontrado" });
@@ -44,7 +44,7 @@ const updateInfected = async (req, res) => {
   }
 };
 
-const deleteInfected = async (req, res) => {
+export const deleteInfected = async (req, res) => {
   try {
     const deletedInfected = await Infected.findByIdAndDelete(req.params.id);
     if (!deletedInfected) return res.status(404).json({ message: "Infectado no encontrado" });

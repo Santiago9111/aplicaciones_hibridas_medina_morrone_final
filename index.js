@@ -1,10 +1,10 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./config/db.js";
 
-const humanRoutes = require("./routes/HumanRoutes");
-const infectedRoutes = require("./routes/InfectedRoutes");
-const userRoutes = require("./routes/UserRoutes");
+import characterRoutes from "./routes/HumanRoutes.js";
+import locationRoutes from "./routes/InfectedRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 connectDB();

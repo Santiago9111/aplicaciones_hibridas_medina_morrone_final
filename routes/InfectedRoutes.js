@@ -1,11 +1,12 @@
-const express = require("express");
-const {
+import express from "express";
+
+import {
   getInfecteds,
   getInfectedById,
   createInfected,
   updateInfected,
   deleteInfected
-} = require("../controllers/InfectedController");
+} from "../controllers/InfectedController.js";
 
 const router = express.Router();
 
@@ -15,4 +16,4 @@ router.post("/", createInfected);
 router.put("/:id", updateInfected);
 router.delete("/:id", deleteInfected);
 
-module.exports = router;
+export default router;

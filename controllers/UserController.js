@@ -1,7 +1,7 @@
-const User = require("../models/UserModel");
+import User from "../models/User.js";
 
 // Obtener todos los usuarios
-const getUsers = async (req, res) => {
+export const getUsers = async (req, res) => {
   try {
     const users = await User.find();
     res.json(users);
@@ -11,7 +11,7 @@ const getUsers = async (req, res) => {
 };
 
 // Obtener usuario por ID
-const getUserById = async (req, res) => {
+export const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     if (!user) return res.status(404).json({ message: "Usuario no encontrado" });
@@ -22,7 +22,7 @@ const getUserById = async (req, res) => {
 };
 
 // Crear usuario
-const createUser = async (req, res) => {
+export const createUser = async (req, res) => {
   try {
     const newUser = new User(req.body);
     const savedUser = await newUser.save();
@@ -33,7 +33,7 @@ const createUser = async (req, res) => {
 };
 
 // Actualizar usuario
-const updateUser = async (req, res) => {
+export const updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedUser) return res.status(404).json({ message: "Usuario no encontrado" });
@@ -44,7 +44,7 @@ const updateUser = async (req, res) => {
 };
 
 // Eliminar usuario
-const deleteUser = async (req, res) => {
+export const deleteUser = async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);
     if (!deletedUser) return res.status(404).json({ message: "Usuario no encontrado" });

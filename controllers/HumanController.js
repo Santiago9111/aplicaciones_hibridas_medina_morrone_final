@@ -1,6 +1,6 @@
-const Human = require("../models/HumanModel");
+import Human from "../models/HumanModel.js";
 
-const getHumans = async (req, res) => {
+export const getHumans = async (req, res) => {
   try {
     const { name, status } = req.query;
     let filter = {};
@@ -14,7 +14,7 @@ const getHumans = async (req, res) => {
   }
 };
 
-const getHumanById = async (req, res) => {
+export const getHumanById = async (req, res) => {
   try {
     const human = await Human.findById(req.params.id);
     if (!human) return res.status(404).json({ message: "Humano no encontrado" });
@@ -24,7 +24,7 @@ const getHumanById = async (req, res) => {
   }
 };
 
-const createHuman = async (req, res) => {
+export const createHuman = async (req, res) => {
   try {
     const newHuman = new Human(req.body);
     const savedHuman = await newHuman.save();
@@ -34,7 +34,7 @@ const createHuman = async (req, res) => {
   }
 };
 
-const updateHuman = async (req, res) => {
+export const updateHuman = async (req, res) => {
   try {
     const updatedHuman = await Human.findByIdAndUpdate(req.params.id, req.body, { new: true });
     if (!updatedHuman) return res.status(404).json({ message: "Humano no encontrado" });
@@ -44,7 +44,7 @@ const updateHuman = async (req, res) => {
   }
 };
 
-const deleteHuman = async (req, res) => {
+export const deleteHuman = async (req, res) => {
   try {
     const deletedHuman = await Human.findByIdAndDelete(req.params.id);
     if (!deletedHuman) return res.status(404).json({ message: "Humano no encontrado" });

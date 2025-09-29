@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const infectedSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -7,4 +7,4 @@ const infectedSchema = new mongoose.Schema({
   image: { type: String, required: true }
 }, { timestamps: true });
 
-module.exports = mongoose.model("Infected", infectedSchema);
+export default mongoose.model("Infected", infectedSchema);

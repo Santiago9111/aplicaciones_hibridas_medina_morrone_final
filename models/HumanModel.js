@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const humanSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -7,4 +7,4 @@ const humanSchema = new mongoose.Schema({
   image: { type: String }
 }, { timestamps: true });
 
-module.exports = mongoose.model("Humans", humanSchema);
+export default mongoose.model("Humans", humanSchema);

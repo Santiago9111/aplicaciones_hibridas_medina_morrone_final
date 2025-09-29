@@ -1,11 +1,12 @@
-const express = require("express");
-const {
+import express from "express";
+
+import {
   getHumans,
   getHumanById,
   createHuman,
   updateHuman,
   deleteHuman
-} = require("../controllers/HumanController");
+} from "../controllers/HumanController.js";
 
 const router = express.Router();
 
@@ -15,4 +16,4 @@ router.post("/", createHuman);
 router.put("/:id", updateHuman);
 router.delete("/:id", deleteHuman);
 
-module.exports = router;
+export default router;

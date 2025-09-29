@@ -5,4 +5,4 @@ const handleValidation = (req, res, next) => {
   next();
 };
 
-module.exports = handleValidation;
+export default handleValidation;

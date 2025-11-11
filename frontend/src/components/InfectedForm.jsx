@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function LocationForm({ token, selected, onSaved, onCancel }) {
+export default function InfectedForm({ token, selected, onSaved, onCancel }) {
   const [form, setForm] = useState({
     name: "",
     region: "",
@@ -17,8 +17,8 @@ export default function LocationForm({ token, selected, onSaved, onCancel }) {
     e.preventDefault();
     const method = selected ? "PUT" : "POST";
     const url = selected
-      ? `http://localhost:5000/api/locations/${selected._id}`
-      : "http://localhost:5000/api/locations";
+      ? `http://localhost:5000/api/infecteds/${selected._id}`
+      : "http://localhost:5000/api/infecteds";
 
     const res = await fetch(url, {
       method,

@@ -24,7 +24,7 @@ export default function LoginPage() {
       }
 
       localStorage.setItem("token", data.token);
-      navigate("/characters");
+      navigate("/home");
     } catch (err) {
       setError("Error de conexión con el servidor");
     }

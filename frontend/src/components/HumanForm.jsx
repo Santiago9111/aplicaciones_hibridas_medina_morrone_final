@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-export default function CharacterForm({ token, selected, onSaved, onCancel }) {
+export default function HumanForm({ token, selected, onSaved, onCancel }) {
   const [form, setForm] = useState({
     name: "",
     age: "",
@@ -17,8 +17,8 @@ export default function CharacterForm({ token, selected, onSaved, onCancel }) {
     e.preventDefault();
     const method = selected ? "PUT" : "POST";
     const url = selected
-      ? `http://localhost:5000/api/characters/${selected._id}`
-      : "http://localhost:5000/api/characters";
+      ? `http://localhost:5000/api/humans/${selected._id}`
+      : "http://localhost:5000/api/humans";
 
     const res = await fetch(url, {
       method,

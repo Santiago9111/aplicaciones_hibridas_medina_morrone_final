@@ -24,15 +24,12 @@ export default function RegisterPage() {
 
       const data = await res.json();
       if (!res.ok) {
-        // Capturamos los mensajes de express-validator
         if (data.errors && data.errors.length > 0) {
           return setError(data.errors[0].msg);
         }
         if (data.msg) return setError(data.msg);
         throw new Error("Error desconocido al registrarse");
       }
-
-      // Guardamos el token y usuario globalmente
       login(data.token, data.user);
       navigate("/home");
     } catch (err) {

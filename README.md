@@ -38,7 +38,7 @@ proyecto-final
 │   ├── models/
 │   │   └── HumanModel.js
 |   |   └── InfectedModel.js
-|    |   └── UserModel.js
+|   |   └── UserModel.js
 │   ├── controllers/
 │   │   ├── authController.js
 │   │   └── HumanController.js

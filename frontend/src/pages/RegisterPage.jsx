@@ -44,7 +44,7 @@ export default function RegisterPage() {
         <h2>Crear Cuenta</h2>
 
         <input
-          name="username"
+          name="username" // Cambiado de "username" a "name"
           type="text"
           placeholder="Nombre de usuario"
           value={form.username}

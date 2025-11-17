@@ -23,7 +23,8 @@ export const register = async (req, res) => {
       user: { id: user.id, username, email }
     });
   } catch (error) {
-    res.status(500).json({ msg: "Error en el servidor" });
+    console.error(error);
+    res.status(500).json({ msg: "Error en el servidor " });
   }
 };
 

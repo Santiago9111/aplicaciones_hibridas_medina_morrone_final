@@ -1,6 +1,6 @@
 import User from "../models/UserModel.js";
 
-// Obtener todos los usuarios
+
 export const getUsers = async (req, res) => {
   try {
     const users = await User.find();
@@ -10,7 +10,7 @@ export const getUsers = async (req, res) => {
   }
 };
 
-// Obtener usuario por ID
+
 export const getUserById = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
@@ -21,7 +21,7 @@ export const getUserById = async (req, res) => {
   }
 };
 
-// Crear usuario
+
 export const createUser = async (req, res) => {
   try {
     const newUser = new User(req.body);
@@ -32,7 +32,7 @@ export const createUser = async (req, res) => {
   }
 };
 
-// Actualizar usuario
+
 export const updateUser = async (req, res) => {
   try {
     const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -43,7 +43,7 @@ export const updateUser = async (req, res) => {
   }
 };
 
-// Eliminar usuario
+
 export const deleteUser = async (req, res) => {
   try {
     const deletedUser = await User.findByIdAndDelete(req.params.id);

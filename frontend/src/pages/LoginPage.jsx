@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import Navbar from "../components/Navbar.jsx";
 
 export default function LoginPage() {
   const { login } = useContext(AuthContext);
@@ -40,6 +41,8 @@ export default function LoginPage() {
   };
 
   return (
+    <>
+    <Navbar />
     <div className="auth-container">
       <form className="auth-card" onSubmit={handleSubmit}>
         <h2>Iniciar Sesión</h2>
@@ -69,6 +72,16 @@ export default function LoginPage() {
           ¿No tenés cuenta? <Link to="/register">Registrate</Link>
         </p>
       </form>
+       <footer style={{
+        marginTop: "80px",
+        color: "#ffffffff",
+        fontSize: "0.85rem",
+         background: "#000",
+          padding: "15px 0",
+      }}>
+        <p>© 2025 - Aplicaciones Híbridas | Desarrollado por Santiago Medina & Tomás Morrone</p>
+      </footer>
     </div>
+    </>
   );
 }

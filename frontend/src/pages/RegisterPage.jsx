@@ -1,6 +1,7 @@
 import { useState, useContext } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
+import Navbar from "../components/Navbar.jsx";
 
 export default function RegisterPage() {
   const { login } = useContext(AuthContext);
@@ -30,8 +31,7 @@ export default function RegisterPage() {
         if (data.msg) return setError(data.msg);
         throw new Error("Error desconocido al registrarse");
       }
-      login(data.token, data.user);
-      navigate("/");
+      navigate("/login");
     } catch (err) {
       console.error(err);
       setError("Error al registrarse");
@@ -39,12 +39,14 @@ export default function RegisterPage() {
   };
 
   return (
+    <>
+      <Navbar />
     <div className="auth-container">
       <form className="auth-card" onSubmit={handleSubmit}>
         <h2>Crear Cuenta</h2>
 
         <input
-          name="username" // Cambiado de "username" a "name"
+          name="username"
           type="text"
           placeholder="Nombre de usuario"
           value={form.username}
@@ -74,9 +76,19 @@ export default function RegisterPage() {
 
         <button type="submit">Registrarse</button>
         <p>
-          ¿Ya tenés cuenta? <Link to="/">Iniciar sesión</Link>
+          ¿Ya tenés cuenta? <Link to="/login">Iniciar sesión</Link>
         </p>
       </form>
+       <footer style={{
+        marginTop: "80px",
+        color: "#ffffffff",
+        fontSize: "0.85rem",
+         background: "#000",
+          padding: "15px 0",
+      }}>
+        <p>© 2025 - Aplicaciones Híbridas | Desarrollado por Santiago Medina & Tomás Morrone</p>
+      </footer>
     </div>
+    </>
   );
 }

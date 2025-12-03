@@ -114,7 +114,7 @@ export default function InfectedsPage() {
               style={{ width: "100%", borderRadius: "10px" }}
             />
             <h3>{inf.name}</h3>
-            <p>{inf.region}</p>
+            <p>{inf.age}</p>
             <small>{inf.description}</small>
 
             <div style={{ marginTop: "10px" }}>

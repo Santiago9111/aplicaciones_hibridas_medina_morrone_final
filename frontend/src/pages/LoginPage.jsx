@@ -42,40 +42,56 @@ export default function LoginPage() {
 
   return (
     <>
-    <Navbar />
-    <div className="auth-page-wrapper">
-      <form className="auth-card" onSubmit={handleSubmit}>
-        <h2>Iniciar Sesión</h2>
+      <Navbar />
+      
+      <div style={{ minHeight: "calc(100vh - 120px)" }}>
+        <div className="auth-page-wrapper" style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "40px"
+        }}>
+          <form className="auth-card" onSubmit={handleSubmit}>
+            <h2>Iniciar Sesión</h2>
 
-        <input
-          name="email"
-          type="email"
-          placeholder="Correo electrónico"
-          value={form.email}
-          onChange={handleChange}
-          required
-        />
+            <input
+              name="email"
+              type="email"
+              placeholder="Correo electrónico"
+              value={form.email}
+              onChange={handleChange}
+              required
+            />
 
-        <input
-          name="password"
-          type="password"
-          placeholder="Contraseña"
-          value={form.password}
-          onChange={handleChange}
-          required
-        />
+            <input
+              name="password"
+              type="password"
+              placeholder="Contraseña"
+              value={form.password}
+              onChange={handleChange}
+              required
+            />
 
-        {error && <p className="error-msg">{error}</p>}
+            {error && <p className="error-msg">{error}</p>}
 
-        <button type="submit">Entrar</button>
-        <p>
-          ¿No tenés cuenta? <Link to="/register">Registrate</Link>
-        </p>
-      </form>
-    </div>
-    <footer className="auth-footer"> 
-  <p>© 2025 - Aplicaciones Híbridas | Desarrollado por Santiago Medina & Tomás Morrone</p>
-  </footer>
+            <button type="submit">Entrar</button>
+            <p>
+              ¿No tenés cuenta? <Link to="/register">Registrate</Link>
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <footer style={{
+        marginTop: "auto",
+        color: "#fff",
+        fontSize: "0.85rem",
+        background: "#000",
+        padding: "15px 0",
+        textAlign: "center"
+      }}>
+        <p>© 2025 - Aplicaciones Híbridas | Desarrollado por Santiago Medina & Tomás Morrone</p>
+      </footer>
     </>
   );
 }

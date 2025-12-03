@@ -41,7 +41,15 @@ export default function RegisterPage() {
   return (
     <>
       <Navbar />
-    <div className="auth-page-wrapper">
+      
+    {/* Contenedor principal que ocupa el alto de pantalla */}
+      <div style={{ minHeight: "calc(100vh - 120px)" }}>
+        <div className="auth-page-wrapper" style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          padding: "40px"
+        }}>
       <form className="auth-card" onSubmit={handleSubmit}>
         <h2>Crear Cuenta</h2>
 
@@ -80,9 +88,17 @@ export default function RegisterPage() {
         </p>
       </form>
     </div>
-    <footer className="auth-footer">
-    <p>© 2025 - Aplicaciones Híbridas | Desarrollado por Santiago Medina & Tomás Morrone</p>
-   </footer>
+    </div>
+    <footer style={{
+        marginTop: "80px",
+        color: "#ffffffff",
+        fontSize: "0.85rem",
+        background: "#000",
+        padding: "15px 0",
+        textAlign: "center"
+      }}>
+        <p>© 2025 - Aplicaciones Híbridas | Desarrollado por Santiago Medina & Tomás Morrone</p>
+      </footer>
     </>
   );
 }
